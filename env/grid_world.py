@@ -2,11 +2,7 @@ import numpy as np
 from dataclasses import dataclass
 from typing import List, Optional
 
-@dataclass(frozen=True)
-class Position:
-    """Represents a 2D coordinate in the GridWorld."""
-    x: int
-    y: int
+from .position import Position
 
 class GridWorld:
     """

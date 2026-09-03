@@ -6,17 +6,17 @@ The goal is to investigate the emergence of cooperation.
 
 ## Current Implementation Status
 
-Phase 2 completed:
+Phase 3 completed:
 
 Implemented:
-- GridWorld core
-- position validation
-- random position sampling
+- discrete action definition
+- agent movement mechanics
+- boundary-aware movement
 
 Not implemented yet:
-- movement
-- actions
-- environment dynamics
+- target movement
+- capture mechanism
+- rewards
 - reinforcement learning
 
 ## Future Roadmap
