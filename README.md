@@ -6,18 +6,18 @@ The goal is to investigate the emergence of cooperation.
 
 ## Current Implementation Status
 
-Phase 1 completed:
+Phase 2 completed:
 
 Implemented:
-- Position model
-- Agent entity
-- Target entity
+- GridWorld core
+- position validation
+- random position sampling
 
 Not implemented yet:
-- GridWorld
-- Movement
-- Actions
-- Reinforcement learning
+- movement
+- actions
+- environment dynamics
+- reinforcement learning
 
 ## Future Roadmap
 
@@ -33,7 +33,14 @@ Environment mechanics
 Phase 3:
 Baseline agents
 
+Phase 4:
+Reinforcement learning
 
+Phase 5:
+Cooperative learning experiments
+
+Phase 6:
+Analysis and documentation
 
 ## Installation
 
