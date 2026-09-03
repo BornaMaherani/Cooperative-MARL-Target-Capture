@@ -6,19 +6,20 @@ The goal is to investigate the emergence of cooperation.
 
 ## Current Implementation Status
 
-Phase 4 completed:
+Phase 5 completed:
 
 Implemented:
-- target movement
-- random target policy
-- reproducible target behavior
+- complete simulation environment
+- reset function
+- step function
+- agent-target interaction loop
+- environment state management
 
 Not implemented yet:
-- full environment
-- agent-target interaction
-- capture mechanism
+- capture condition
 - rewards
 - reinforcement learning
+- training
 
 ## Future Roadmap
 
