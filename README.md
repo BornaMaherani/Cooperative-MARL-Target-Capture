@@ -4,20 +4,20 @@ This project studies cooperative behavior in multi-agent reinforcement learning.
 Multiple agents learn to capture a moving target.
 The goal is to investigate the emergence of cooperation.
 
-## Current Status
+## Current Implementation Status
 
-Current phase:
-Phase 0 - Project Initialization
+Phase 1 completed:
 
 Implemented:
-- Repository structure
-- Development foundation
+- Position model
+- Agent entity
+- Target entity
 
 Not implemented yet:
-- Environment
-- Agents
-- Reinforcement learning algorithms
-- Experiments
+- GridWorld
+- Movement
+- Actions
+- Reinforcement learning
 
 ## Future Roadmap
 
