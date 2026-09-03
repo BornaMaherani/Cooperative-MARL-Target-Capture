@@ -33,9 +33,6 @@ Environment mechanics
 Phase 3:
 Baseline agents
 
-Phase 4:
-Reinforcement learning
-
 
 
 ## Installation
