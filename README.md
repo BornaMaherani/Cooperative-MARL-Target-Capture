@@ -36,8 +36,6 @@ Baseline agents
 Phase 4:
 Reinforcement learning
 
-Phase 5:
-Cooperative learning experiments
 
 
 ## Installation
