@@ -1,19 +1,15 @@
 from .actions import Action
 from .position import Position
-from .entities import Agent
+from .entities import Agent, Target
 from .grid_world import GridWorld
 
 class MovementController:
-    """Handles agent movement in the GridWorld."""
+    """Handles entity movement in the GridWorld."""
 
     @staticmethod
-    def move_agent(agent: Agent, action: Action, grid: GridWorld) -> None:
-        """
-        Updates the agent's position based on the action and grid boundaries.
-        Only valid movements are applied.
-        """
-        x, y = agent.position.x, agent.position.y
-
+    def calculate_new_position(position: Position, action: Action) -> Position:
+        """Calculates intended new position without applying boundaries."""
+        x, y = position.x, position.y
         if action == Action.UP:
             y += 1
         elif action == Action.DOWN:
@@ -24,8 +20,24 @@ class MovementController:
             x -= 1
         elif action == Action.STAY:
             pass
+        return Position(x, y)
 
-        new_pos = Position(x, y)
-
+    @staticmethod
+    def move_agent(agent: Agent, action: Action, grid: GridWorld) -> None:
+        """
+        Updates the agent's position based on the action and grid boundaries.
+        Only valid movements are applied.
+        """
+        new_pos = MovementController.calculate_new_position(agent.position, action)
         if grid.is_valid_position(new_pos):
             agent.set_position(new_pos)
+
+    @staticmethod
+    def move_target(target: Target, action: Action, grid: GridWorld) -> None:
+        """
+        Updates the target's position based on the action and grid boundaries.
+        If an action leads outside the grid, the target stays in place (invalid movement is ignored).
+        """
+        new_pos = MovementController.calculate_new_position(target.position, action)
+        if grid.is_valid_position(new_pos):
+            target.set_position(new_pos)

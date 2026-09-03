@@ -6,15 +6,16 @@ The goal is to investigate the emergence of cooperation.
 
 ## Current Implementation Status
 
-Phase 3 completed:
+Phase 4 completed:
 
 Implemented:
-- discrete action definition
-- agent movement mechanics
-- boundary-aware movement
+- target movement
+- random target policy
+- reproducible target behavior
 
 Not implemented yet:
-- target movement
+- full environment
+- agent-target interaction
 - capture mechanism
 - rewards
 - reinforcement learning
