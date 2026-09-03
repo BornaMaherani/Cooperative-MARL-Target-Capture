@@ -39,8 +39,6 @@ Reinforcement learning
 Phase 5:
 Cooperative learning experiments
 
-Phase 6:
-Analysis and documentation
 
 ## Installation
 
