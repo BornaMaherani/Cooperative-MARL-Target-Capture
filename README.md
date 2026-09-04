@@ -6,20 +6,18 @@ The goal is to investigate the emergence of cooperation.
 
 ## Current Implementation Status
 
-Phase 5 completed:
+Phase 6 completed:
 
 Implemented:
-- complete simulation environment
-- reset function
-- step function
-- agent-target interaction loop
-- environment state management
+- target capture condition
+- capture checking module
+- successful episode termination
 
 Not implemented yet:
-- capture condition
 - rewards
 - reinforcement learning
 - training
+- MARL algorithms
 
 ## Future Roadmap
 
