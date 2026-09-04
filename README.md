@@ -6,18 +6,18 @@ The goal is to investigate the emergence of cooperation.
 
 ## Current Implementation Status
 
-Phase 6 completed:
+Phase 7 completed:
 
 Implemented:
-- target capture condition
-- capture checking module
-- successful episode termination
+- reward calculation module
+- distance shaping reward
+- cooperative capture reward
+- step penalty
 
 Not implemented yet:
-- rewards
 - reinforcement learning
 - training
-- MARL algorithms
+- learning agents
 
 ## Future Roadmap
 
