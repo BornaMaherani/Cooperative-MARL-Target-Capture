@@ -7,6 +7,7 @@ from .position import Position
 from .actions import Action
 from .movement import MovementController
 from .target_policy import RandomTargetPolicy
+from .capture import CaptureChecker
 
 class TargetCaptureEnv:
     """Core simulation environment for target capture."""
@@ -25,6 +26,7 @@ class TargetCaptureEnv:
         self.target = None
         
         self.current_step = 0
+        self.captured = False
 
     def reset(self, seed: Optional[int] = None) -> Dict[str, Position]:
         """
@@ -37,6 +39,7 @@ class TargetCaptureEnv:
             self.grid = GridWorld(self.grid_size) # GridWorld uses its own rng, though it's barely used when we pass explicit seeds.
 
         self.current_step = 0
+        self.captured = False
         
         # We need 3 unique positions for the 2 agents and 1 target
         all_pos = self.grid.get_all_positions()
@@ -67,8 +70,10 @@ class TargetCaptureEnv:
         Executes one environment step.
         1. Apply hunter actions
         2. Move target
-        3. Increase timestep
-        4. Return state and info
+        3. Update timestep
+        4. Check capture
+        5. Update episode status
+        6. Return state and info
         """
         # 1. Apply hunter actions
         if "agent_0" in actions:
@@ -80,18 +85,30 @@ class TargetCaptureEnv:
         target_action = self.target_policy.choose_action(self.target, self.grid)
         MovementController.move_target(self.target, target_action, self.grid)
         
-        # 3. Increase timestep
+        # 3. Update timestep
         self.current_step += 1
         
-        # 4. Return
+        # 4. Check capture
+        self.captured = CaptureChecker.is_captured([self.agent_0, self.agent_1], self.target)
+        
+        # 5. Update episode status
+        terminated = self.captured
+        truncated = self.current_step >= self.max_steps
+        
+        # 6. Return state and info
         state = self.get_state()
-        info = {"step": self.current_step}
+        info = {
+            "step": self.current_step,
+            "captured": self.captured,
+            "terminated": terminated,
+            "truncated": truncated
+        }
         
         return state, info
 
     def is_done(self) -> bool:
-        """Returns True if the maximum steps are reached."""
-        return self.current_step >= self.max_steps
+        """Returns True if the maximum steps are reached or target is captured."""
+        return (self.current_step >= self.max_steps) or self.captured
 
     def render(self) -> None:
         """Renders the environment to the console."""
