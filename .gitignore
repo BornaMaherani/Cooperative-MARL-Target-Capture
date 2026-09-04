@@ -8,3 +8,4 @@ venv/
 results/*
 !results/plots/.gitkeep
 !results/gifs/.gitkeep
+Project Context/

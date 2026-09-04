@@ -6,18 +6,17 @@ The goal is to investigate the emergence of cooperation.
 
 ## Current Implementation Status
 
-Phase 7 completed:
+Phase 8 completed:
 
 Implemented:
-- reward calculation module
-- distance shaping reward
-- cooperative capture reward
-- step penalty
+- random baseline agent
+- heuristic baseline agent
+- baseline evaluation framework
 
 Not implemented yet:
 - reinforcement learning
-- training
-- learning agents
+- learned policies
+- MARL algorithms
 
 ## Future Roadmap
 
